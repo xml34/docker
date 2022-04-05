@@ -48,6 +48,77 @@ actifacts that docker uses to crated the containers
 
 ---
 ## FU Commands
-<span style="color:red">run</span> `docker run`, corre la imagen para "instanciar" el contenedor
 
-<span style="color:red">ps</span> `docker ps -a` list containers
+
+<details close>
+<summary><span style="color:red">run</span></summary>
+
+`docker run <image-name> <command|>`, corre la imagen para "instanciar" el contenedor
+
+    --name <alias-name> # asing our alias name
+    -it
+    --detach | -d  # run in background of the terminal, other ways blocs the term when continuos daemon
+    <command|>  # expl: sudo docker run -d ubuntu tail -f /dev/null
+    -p <port>:<cont> # to specify the port ur gonna export and wich port (-p 8080:80)
+        # docker run --name proxy -d -p 8080:80 nginx then -> localhost:8080
+</details>
+
+
+<details close>
+<summary><span style="color:red">rename</span></summary> 
+
+`docker rename <old-name> <new-name>`, rename an existing container's alias name
+</details>
+
+
+<details close>
+<summary><span style="color:red">ps</span></summary> 
+
+`docker ps` list all runing containers
+
+    -a # for all, shutted down included
+</details>
+
+
+<details close>
+<summary><span style="color:red">inspect</span></summary> 
+
+`docker inspect <id/alias>`, all description and container configuration
+
+    --format '<filtering-query>'  # inspect --format '{{.State.Pid}}' 
+</details>
+
+
+<details close>
+<summary><span style="color:red">rm</span></summary> 
+
+`docker rm <id/alias>`, delete a container
+</details>
+
+
+<details close>
+<summary><span style="color:red">prune</span></summary> 
+
+`docker container prune <id/alias>`, delete all stoped containers
+</details>
+
+
+<details close>
+<summary><span style="color:red">exec</span></summary> 
+
+`docker exec <id/alias> <command-to-exec>`, ejecutar un comando dentro de a running container
+
+    -it  # modo interactivo (sudo docker exec -it always_up bash)
+
+</details>
+
+
+<details close>
+<summary><span style="color:red">logs</span></summary> 
+
+`docker logs <id/alias>`, in order to see the logs
+
+    -f  # ver constantemente ejem: docker logs -f proxy
+    --tail <#>: to see las # of logs ejem: docker logs --tail 10 -f proxy
+
+</details>
