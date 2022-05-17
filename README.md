@@ -58,9 +58,13 @@ actifacts that docker uses to crated the containers
     --name <alias-name> # asing our alias name
     -it
     --detach | -d  # run in background of the terminal, other ways blocs the term when continuos daemon
-    <command|>  # expl: sudo docker run -d ubuntu tail -f /dev/null
-    -p <port>:<cont> # to specify the port ur gonna export and wich port (-p 8080:80)
+        <command|>  # expl: sudo docker run -d ubuntu tail -f /dev/null
+    -p <port maq>:<port contdr> # to specify the port ur gonna export and wich port (-p 8080:80)
         # docker run --name proxy -d -p 8080:80 nginx then -> localhost:8080
+    -v <machine_path:cont_path>  
+        # 4 syncronizing and bind folders, ejem: sudo docker run -d --name db -v /home/dev-daniel/mongodata:/data/db mongo
+    --mount src=<volumen>,dst=<folder-path>  
+        # exam: sudo docker run -d --name db --mount src=dbdata,dst=/data/db mongo
 </details>
 
 
@@ -116,9 +120,28 @@ actifacts that docker uses to crated the containers
 <details close>
 <summary><span style="color:red">logs</span></summary> 
 
-`docker logs <id/alias>`, in order to see the logs
+`docker logs <id/alias>`, in order to see the container logs
 
     -f  # ver constantemente ejem: docker logs -f proxy
     --tail <#>: to see las # of logs ejem: docker logs --tail 10 -f proxy
+
+</details>
+
+
+<details close>
+<summary><span style="color:red">stop</span></summary> 
+
+`docker stop <id/alias>`, stops the running container
+
+</details>
+
+
+<details close>
+<summary><span style="color:red">volume</span></summary> 
+
+`docker volume <action>`, stops the running container
+
+    * create <name>, create a volume
+    * ls, list volumes
 
 </details>
